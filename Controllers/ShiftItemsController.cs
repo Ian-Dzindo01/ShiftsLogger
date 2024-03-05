@@ -73,16 +73,15 @@ namespace ShiftsLogger.Controllers
         }
 
         // POST: api/ShiftItems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754asds
         [HttpPost]
         public async Task<ActionResult<ShiftItem>> PostShiftItem(ShiftItem shiftItem)
         {
             _context.ShiftItems.Add(shiftItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetShiftItem", new { id = shiftItem.Id }, shiftItem);
+            return CreatedAtAction(nameof(GetShiftItem), new { id = shiftItem.Id }, shiftItem);
         }
-
         // DELETE: api/ShiftItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShiftItem(long id)
